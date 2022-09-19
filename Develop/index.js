@@ -1,61 +1,68 @@
-// TODO: Include packages needed for this application
+//packages needed for this application
 const inquirer = require('inquirer');
+const fs = require("fs");
+const markdownShell = require("./markdownShell")``
 
-// TODO: Create an array of questions for user input
-const questions0 = questions.value[0];
-const questions1 = questions.value[1];
-const questions2 = questions.value[2];
-const questions3 = questions.value[3];
-const questions4 = questions.value[4];
-const questions5 = questions.value[5];
-
+// array of questions for user input that goes into the HTML
 const questions = [
     {
-        type:'input',
-        name:'titleInput',
-        message:'What would you like your project title to be?',
+        type: 'input',
+        name: 'titleInput',
+        message: 'What would you like your project title to be?',
     },
 
     {
-        type:'input',
-        name:'description',
-        message:'Please provide a short description of your project:',
+        type: 'input',
+        name: 'description',
+        message: 'Please provide a short description of your project:',
     },
 
     {
-        type:'input',
-        name:'installation',
-        message:'Please provide instructions for installing your project:',
+        type: 'input',
+        name: 'installation',
+        message: 'Please provide instructions for installing your project:',
     },
 
     {
-        type:'input',
-        name:'usage',
-        message:'Please give a short description for how your project is to be used:',
+        type: 'input',
+        name: 'usage',
+        message: 'Please give a short description for how your project is to be used:',
     },
 
     {
-        type:'input',
-        name:'contribute',
-        message:'Please add any pertinent contribution guidelines for your project:',
+        type: 'input',
+        name: 'contribute',
+        message: 'Please add any pertinent contribution guidelines for your project:',
     },
 
     {
-        type:'input',
-        name:'testing',
-        message:'Please include any testing instructions that may be needed:',
+        type: 'input',
+        name: 'testing',
+        message: 'Please include any testing instructions that may be needed:',
     },
 ];
 
-inquirer.prompt(questions);
+// inquirer.prompt(questions);
 
-// TODO: Create a function to write README file
-function writeToFile(fileName = "README.txt", data) {}
+// write README file
+function writeToFile(fileName = "README.txt", data) {
+    fs.writeToFile(fileName, data, function (err) {
+        console.log(fileName)
+        console.log(data)
+    }
+)}
 
-// TODO: Create a function to initialize app
-function init() {}
+// initialize app
+function init() {
+    inquirer.prompt(questions)
+    .then(function(data) {
+        writeToFile("README.md", markdownShell(data));
+        console.log(data);
+        console.log(fs.readFileSync(questions.titleInput, "utf8"));
+    })
+ }
 
-// Function call to initialize app
+// call initialize function!
 init();
 
 
@@ -76,3 +83,5 @@ init();
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
 // WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
+
+// const util = require("util");
