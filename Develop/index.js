@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 const util = require("util");
 
-// array of questions for user input that goes into the HTML
+// array of questions for user input that goes into the generated .md file
 const questions = [
     {
         type: 'input',
@@ -49,27 +49,29 @@ const questions = [
     },
 ];
 
-// inquirer.prompt(questions);
 
 // write README file
 function writeToFile(fileName, data) {
-    fs.writeToFile(fileName, data,
-        function (err) {
-            console.log(fileName)
-            console.log(data)
+    fs.writeToFile(fileName, data, function (err) {
+        console.log(fileName)
+        console.log(data)
+        if (err) {
+            return console.log(err)
+        } else {
+            console.log("Success!")
         }
-    )
-}
+    })
+};
 
 // initialize app
 function init() {
     inquirer.prompt(questions)
         .then(function (data) {
             writeToFile("README.md", generateMarkdown(data));
-            console.log(`Here's the data: ${data}`);
+            console.log(data);
             console.log(fs.readFileSync(questions.titleInput, "utf8"));
         })
-}
+};
 
 // call initialize function!
 init();
@@ -92,4 +94,3 @@ init();
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
 // WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
-
