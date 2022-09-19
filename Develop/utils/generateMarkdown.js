@@ -17,10 +17,10 @@ function generateMarkdown(data) {
   
 ## Table of Contents
 * [Description](#description)
-* [Installation](${data.installation})
-* [Usage](${data.usage})
-* [Contribute](${data.contribute})
-* [Testing](${data.testing})
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contribute](#contribute)
+* [Testing](#testing)
 * [Licensing](#license)
 
 
