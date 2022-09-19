@@ -1,7 +1,8 @@
 //packages needed for this application
 const inquirer = require('inquirer');
-const fs = require("fs");
-const markdownShell = require("./markdownShell")``
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
+const util = require("util");
 
 // array of questions for user input that goes into the HTML
 const questions = [
@@ -40,27 +41,35 @@ const questions = [
         name: 'testing',
         message: 'Please include any testing instructions that may be needed:',
     },
+
+    {
+        type: 'input',
+        name: 'license',
+        message: 'Please specify which licensing is to be used: (none or MIT)',
+    },
 ];
 
 // inquirer.prompt(questions);
 
 // write README file
-function writeToFile(fileName = "README.txt", data) {
-    fs.writeToFile(fileName, data, function (err) {
-        console.log(fileName)
-        console.log(data)
-    }
-)}
+function writeToFile(fileName, data) {
+    fs.writeToFile(fileName, data,
+        function (err) {
+            console.log(fileName)
+            console.log(data)
+        }
+    )
+}
 
 // initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(function(data) {
-        writeToFile("README.md", markdownShell(data));
-        console.log(data);
-        console.log(fs.readFileSync(questions.titleInput, "utf8"));
-    })
- }
+        .then(function (data) {
+            writeToFile("README.md", generateMarkdown(data));
+            console.log(`Here's the data: ${data}`);
+            console.log(fs.readFileSync(questions.titleInput, "utf8"));
+        })
+}
 
 // call initialize function!
 init();
@@ -84,4 +93,3 @@ init();
 // WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
 
-// const util = require("util");
