@@ -36,3 +36,4 @@ If you have any questions, please reach me at:
 - GitHub: (https://github.com/aBraveNewURL)
 - E-mail: email@email.net
 
+![HowTo](https://user-images.githubusercontent.com/108553499/191372159-9621bbad-298c-4558-9703-f60bb2202f91.gif)
