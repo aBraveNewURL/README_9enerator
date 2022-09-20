@@ -27,7 +27,7 @@
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
-# ${data.titleInput}
+# ${data.titleInput}    ![none](https://img.shields.io/badge/license-Unlicense-blue.svg)]
   
 ## Table of Contents
 
@@ -58,7 +58,7 @@ function generateMarkdown(data) {
 
 ## License 
   ${data.license} 
-  ${data.badge}
+  (http://unlicense.org/)
 ### Questions
 If you have any questions, please reach me at:
 - GitHub: (https://github.com/${data.github})

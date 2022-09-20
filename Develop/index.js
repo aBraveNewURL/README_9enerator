@@ -15,12 +15,12 @@ const questions = [
     {
         type: 'input',
         name: 'github',
-        message: 'What is your GitHub profile name?',
+        message: 'Which GitHub profile name would you like to add?',
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Which e-mail address would you like to associate with your project?',
+        message: 'Should the user have any questions, which e-mail address would you like listed?',
     },
 
     {
