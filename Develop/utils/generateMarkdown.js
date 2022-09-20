@@ -1,27 +1,20 @@
 // // TODO: Create a function that returns a license badge based on which license is passed in
 // // If there is no license, return an empty string
-// function renderLicenseBadge(license) {
-//   if (license == "MIT") {
-
+// function renderLicenseBadge(data) {
+//   var badge = data.license
+//   if (data.license == "MIT") {
+//     let badge = ("[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)")
 //   }
-//   if (license == "apache") {
+//   else if (data.license == "apache") {
+//     let badge = ("[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)")
 //   }
-//   if (license == "unlicensed") {
+//   if (data.license == "unlicensed") {
+//     let badge = ("Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)")
 //   }
-
-//   else if (license == null) {
+//   else if (license == "undefined") {
 //     return ("");
-//   } 
-   
+//   }
 // };
-
-// apache: [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-// MIT: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-// unlicense: [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
-
-
-
-
 
 // // TODO: Create a function that returns the license link
 // // If there is no license, return an empty string
@@ -41,10 +34,10 @@ function generateMarkdown(data) {
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contribute](#contribute)
+* [Contributing](#contribute)
 * [Testing](#testing)
-* [Licensing](#license)
-* [Contact Info](#github)
+* [License](#license)
+* [Questions](#github)
   
 
 
@@ -57,19 +50,20 @@ function generateMarkdown(data) {
 ## Usage
   ${data.usage}
 
-## Contribute
+## Contributing
   ${data.contribute}
 
 ## Testing
   ${data.testing}
 
-## Licensing 
-  ${data.license} [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+## License 
+  ${data.license} 
+  ${data.badge}
+### Questions
+If you have any questions, please reach me at:
+- GitHub: (https://github.com/${data.github})
+- E-mail: ${data.email}
 
-### Contact Info
-  ${data.github}
-  ${data.email}
-  
 `};
 
 module.exports = generateMarkdown;
