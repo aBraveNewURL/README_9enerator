@@ -56,7 +56,7 @@ const questions = [
     {
         type: 'input',
         name: 'license',
-        message: 'Please specify which licensing is to be used: (none, unlicensed, apache, or MIT)',
+        message: 'Please specify which licensing is to be used (none, unlicensed, apache, or MIT):',
     },
 ];
 
