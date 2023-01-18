@@ -17,7 +17,7 @@
   My newest favoritest project!
   
 ## Installation
-  via terminal, like so ^^^
+  Navitage to /Develop, then run `node index.js`
   
 ## Usage
   very carefully...
